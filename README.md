@@ -4,7 +4,6 @@
 ![Branch stable](https://img.shields.io/badge/stable%20branch-master-blue.svg)
 ![Branch Develop](https://img.shields.io/badge/dev%20branch-develop-blue.svg)
 <a href="https://join.slack.com/t/vuestorefront/shared_invite/enQtMzA4MTM2NTE5NjM2LTI1M2RmOWIyOTk0MzFlMDU3YzJlYzcyYzNiNjUyZWJiMTZjZjc3MjRlYmE5ZWQ1YWRhNTQyM2ZjN2ZkMzZlNTg">![Branch Develop](https://img.shields.io/badge/community%20chat-slack-FF1493.svg)</a>
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 Vue Storefront is a standalone PWA storefront for your eCommerce, possible to connect with any eCommerce backend (eg. Magento, <a href="https://github.com/DivanteLtd/pimcore2vuestorefront">Pimcore</a>,  Prestashop or Shopware) through the API.
 
@@ -206,9 +205,9 @@ Vue Storefront is a Community effort brought to You by our great Core Team and s
       <td align="center" valign="middle">
         <a href="https://divante.co/">
           <img
-            src="https://divante.co/static/img/logo.svg"
+            src="https://divante.co/about us/LOGO.png"
             alt="Divante"
-            height="50"
+            width="120"
           >
         </a>
       </td>
@@ -433,6 +432,53 @@ Vue Storefront is a Community effort brought to You by our great Core Team and s
             src="https://divante.co/partners/Vue-Storefront/bemeir.png"
             alt="Bemeir"
             height="40"
+          >
+        </a>
+      </td>
+    </tr>
+     <tr>
+       <td align="center" valign="middle">
+        <a href="http://copex.io/">
+          <img
+            src="https://divante.co/partners/Vue-Storefront/copex-io-logo.png"
+            alt="Copex.io"
+            height="50"
+          >
+        </a>
+      </td>
+         <td align="center" valign="middle">
+        <a href="https://www.badger.blue/">
+          <img
+            src="https://divante.co/partners/Vue-Storefront/BlueBadger-Logo.png"
+            alt="Badger Blue"
+            height="50"
+          >
+        </a>
+      </td>
+        <td align="center" valign="middle">
+        <a href="">
+          <img
+            src=""
+            alt=""
+            height="50"
+          >
+        </a>
+      </td>
+    <td align="center" valign="middle">
+        <a href="">
+          <img
+            src=""
+            alt=""
+            height="50"
+          >
+        </a>
+      </td>
+         <td align="center" valign="middle">
+        <a href="">
+          <img
+            src=""
+            alt=""
+            height="50"
           >
         </a>
       </td>
