@@ -6,7 +6,7 @@
           class="number-circle lh35 cl-white brdr-circle align-center weight-700"
           :class="{ 'bg-cl-th-accent' : isActive || isFilled, 'bg-cl-tertiary' : !isFilled && !isActive }"
         >
-          4
+          {{ (isVirtualCart ? 3 : 4) }}
         </div>
       </div>
       <div class="col-xs-11 col-sm-9 col-md-11">
@@ -40,10 +40,10 @@
                 @click="orderReview.terms = !orderReview.terms"
                 @blur="$v.orderReview.terms.$touch()"
                 v-model="orderReview.terms"
-                :validation="{
+                :validations="[{
                   condition: !$v.orderReview.terms.required && $v.orderReview.terms.$error,
                   text: $t('Field is required')
-                }"
+                }]"
               >
                 {{ $t('I agree to') }}
                 <span

@@ -3,11 +3,11 @@ import { attributeModule } from './store/attribute'
 import { stockModule } from './store/stock'
 import { taxModule } from './store/tax'
 import { categoryModule } from './store/category'
-import { VueStorefrontModule, VueStorefrontModuleConfig } from '@vue-storefront/core/lib/module'
+import { createModule } from '@vue-storefront/core/lib/module'
+import { beforeRegistration } from './hooks/beforeRegistration'
 
 export const KEY = 'catalog'
-
-const moduleConfig: VueStorefrontModuleConfig = {
+export const Catalog = createModule({
   key: KEY,
   store: { modules: [
     { key: 'product', module: productModule },
@@ -16,6 +16,5 @@ const moduleConfig: VueStorefrontModuleConfig = {
     { key: 'tax', module: taxModule },
     { key: 'category', module: categoryModule }
   ] },
-}
-
-export const Catalog = new VueStorefrontModule(moduleConfig)
+  beforeRegistration
+})

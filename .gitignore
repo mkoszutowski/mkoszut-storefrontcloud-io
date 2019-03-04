@@ -8,6 +8,7 @@ npm-debug.log
 var
 build/config.json
 core/build/config.json
+core/build/cache-version.json
 theme.js
 desktop.ini
 src/themes/catalog/resource/i18n.json
