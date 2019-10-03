@@ -4,5 +4,5 @@ set -e
 if [ "$VS_ENV" = 'dev' ]; then
   yarn dev
 else
-  yarn build && yarn start
+  yarn start
 fi
