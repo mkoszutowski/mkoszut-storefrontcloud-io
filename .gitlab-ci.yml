@@ -47,6 +47,11 @@ deploy-to-prod:
 
 deploy-to-prod-check:
   stage: deploy-check
-  image: registry.storefrontcloud.io/deploy-checker
+  image: 
+    name: registry.storefrontcloud.io/deploy-checker
+    entrypoint: ["bash -c"]
+  script:
+    - >
+      bundle exec ruby deploy_checker.rb --tag ${CI_COMMIT_SHA:0:8} --kubeconfig $KUBE_CONFIG -n $INSTANCE_NAMESPACE
   only:
     - master
