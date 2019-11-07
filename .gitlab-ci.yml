@@ -5,6 +5,7 @@ variables:
 stages:
   - build
   - deploy
+  - deploy-check
 
 build:
   stage: build
@@ -41,5 +42,11 @@ deploy-to-prod:
   environment:
     name: staging
     url: https:///
+  only:
+    - master
+
+deploy-to-prod-check:
+  stage: deploy-check
+  image: registry.storefrontcloud.io/deploy-checker
   only:
     - master
