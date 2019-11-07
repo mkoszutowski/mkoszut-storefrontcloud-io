@@ -49,8 +49,7 @@ deploy-to-prod-check:
   stage: deploy-check
   image: 
     name: divante/storefront-cloud-deploy-checker
-    entrypoint: ["bash"]
-    command: ["-c", "sleep 130"]
+    entrypoint: ["/bin/bash"]
   script:
     - >
       bundle exec ruby deploy_checker.rb --tag ${CI_COMMIT_SHA:0:8} --kubeconfig $KUBE_CONFIG -n $INSTANCE_NAMESPACE
