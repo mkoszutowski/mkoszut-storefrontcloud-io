@@ -57,6 +57,6 @@ deploy-to-prod-check:
     - echo ${CI_COMMIT_SHA:0:8}
     - echo $KUBE_CONFIG
     - >
-      bundle exec ruby deploy_checker.rb --tag ${CI_COMMIT_SHA:0:8} --kubeconfig $KUBE_CONFIG --namespace $INSTANCE_NAMESPACE
+      bundle exec ruby deploy_checker.rb --tag ${CI_COMMIT_SHA:0:8} --kubeconfig $KUBE_CONFIG --namespace mkoszut-storefrontcloud-io
   only:
     - master
