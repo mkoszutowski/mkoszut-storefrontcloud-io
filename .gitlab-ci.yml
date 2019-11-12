@@ -53,6 +53,9 @@ deploy-to-prod-check:
   script:
     - pwd
     - cd /usr/src/app
+    - echo $INSTANCE_NAMESPACE
+    - echo ${CI_COMMIT_SHA:0:8}
+    - echo $KUBE_CONFIG
     - >
       bundle exec ruby deploy_checker.rb --tag ${CI_COMMIT_SHA:0:8} --kubeconfig $KUBE_CONFIG -n $INSTANCE_NAMESPACE
   only:
