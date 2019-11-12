@@ -53,6 +53,7 @@ deploy-to-prod-check:
   script:
     - cd /usr/src/app
     - echo $KUBE_CONFIG > /tmp/kubeconfig
+    - cat /tmp/kubeconfig
     - >
       bundle exec ruby deploy_checker.rb --tag ${CI_COMMIT_SHA:0:8} --kubeconfig /tmp/kubeconfig --namespace mkoszut-storefrontcloud-io
   only:
