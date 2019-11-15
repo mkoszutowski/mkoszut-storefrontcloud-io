@@ -23,6 +23,8 @@ unit:
     - yarn test:unit
 
 e2e:
+  services:
+    - redis
   stage: test
   image: node:10
   variables:
