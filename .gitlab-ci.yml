@@ -27,7 +27,7 @@ e2e:
   image: node:10
   script:
     - yarn install
-    - test:e2e:ci
+    - yarn test:e2e:ci
 
 build:
   stage: build
