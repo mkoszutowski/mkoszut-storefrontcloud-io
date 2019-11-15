@@ -22,22 +22,22 @@ unit:
     - yarn install
     - yarn test:unit
 
-e2e:
-  services:
-    - redis:4-alpine
-  stage: test
-  image: node:10
-  variables:
-    NODE_CONFIG_ENV: 'ci'
-  script:
-    - touch config/local-ci.json
-    - echo '{"redis":{"host":"redis"}}' > config/local-ci.json
-    - apt-get update && apt-get install -y xvfb libgtk-3-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
-    - yarn install
-    - yarn build
-    - yarn dev &
-    - sleep 20
-    - yarn test:e2e:ci
+# e2e:
+#   services:
+#     - redis:4-alpine
+#   stage: test
+#   image: node:10
+#   variables:
+#     NODE_CONFIG_ENV: 'ci'
+#   script:
+#     - touch config/local-ci.json
+#     - echo '{"redis":{"host":"redis"}}' > config/local-ci.json
+#     - apt-get update && apt-get install -y xvfb libgtk-3-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
+#     - yarn install
+#     - yarn build
+#     - yarn dev &
+#     - sleep 20
+#     - yarn test:e2e:ci
 
 build:
   stage: build
