@@ -26,6 +26,8 @@ e2e:
   stage: test
   image: node:10
   script:
+    - ps -ef | grep Xvfb
+    - apt-get install xvfb
     - yarn install
     - yarn test:e2e:ci
 
