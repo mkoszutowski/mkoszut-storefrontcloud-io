@@ -27,7 +27,7 @@ e2e:
   image: node:10
   script:
     - ps -ef | grep Xvfb
-    - apt-get install xvfb
+    - apt-get update && apt-get install -y xvfb
     - yarn install
     - yarn test:e2e:ci
 
