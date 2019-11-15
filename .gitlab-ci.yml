@@ -24,7 +24,7 @@ unit:
 
 e2e:
   services:
-    - redis
+    - redis:4-alpine
   stage: test
   image: node:10
   variables:
@@ -50,6 +50,12 @@ build:
   only:
     - develop
     - master
+
+sometest:
+  stage: build
+  image: registry.storefrontcloud.io/mkoszut-storefrontcloud-io/vue-storefront:71585966
+  script:
+    - echo "zupa"
 
 deploy-to-staging:
   stage: deploy
