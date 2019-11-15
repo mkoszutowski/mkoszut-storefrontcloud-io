@@ -3,10 +3,24 @@ variables:
   REGISTRY_IMAGE: "registry.storefrontcloud.io/mkoszut-storefrontcloud-io/vue-storefront"
 
 stages:
+  - test
   - build
   - deploy
   - deploy-check
 
+sca:
+  stage: test
+  image: node:10
+  script:
+    - yarn install
+    - yarn lint
+
+unit:
+  stage: test
+  image: node:10
+  script:
+    - yarn install
+    - yarn test:unit
 
 build:
   stage: build
