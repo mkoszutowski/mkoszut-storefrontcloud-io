@@ -49,7 +49,7 @@ deploy-to-prod:
 deploy-to-prod-check:
   stage: deploy-check
   image: 
-    name: divante/storefront-cloud-deploy-checker:db928ab4
+    name: registry.storefrontcloud.io/deploy-checker:db928ab4
     entrypoint: ["/bin/bash"]
   script:
     - cd /usr/src/app
