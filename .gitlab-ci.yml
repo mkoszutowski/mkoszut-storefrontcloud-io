@@ -49,12 +49,11 @@ deploy-to-prod:
 deploy-to-prod-check:
   stage: deploy-check
   image: 
-    name: registry.storefrontcloud.io/deploy-checker:db928ab4
+    name: registry.storefrontcloud.io/deploy-checker
     entrypoint: ["/bin/bash"]
   script:
     - cd /usr/src/app
     - echo $KUBE_CONFIG | base64 --decode > /tmp/kubeconfig
-    - cat /tmp/kubeconfig
     - >
       bundle exec ruby deploy_checker.rb --tag ${CI_COMMIT_SHA:0:8} --kubeconfig /tmp/kubeconfig --namespace mkoszut-storefrontcloud-io
   only:
