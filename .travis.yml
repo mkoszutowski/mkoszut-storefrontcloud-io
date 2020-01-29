@@ -44,7 +44,7 @@ jobs:
       node_js: "10"
       script:
         - docker build -t registry.storefrontcloud.io/mkoszut-storefrontcloud-io/vue-storefront:$COMMIT -f dev/docker/Dockerfile .
-        - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+        - echo $DOCKER_PASSWORD | docker login  -u="$DOCKER_USERNAME" --password-stdin registry.storefrontcloud.io
         - docker push registry.storefrontcloud.io/mkoszut-storefrontcloud-io/vue-storefront:$COMMIT
 
 
