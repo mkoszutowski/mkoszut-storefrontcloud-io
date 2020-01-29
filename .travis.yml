@@ -6,8 +6,15 @@ cache:
   directories:
     - node_modules
 
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::8}
+
 install:
   - yarn
+
+services:
+  - docker
 
 jobs:
   include:
@@ -18,18 +25,11 @@ jobs:
         - yarn build
       node_js: "10"
 
-    - <<: *build
-      node_js: '8'
-
     - &unit
       stage: Test
       script: yarn test:unit
       name: "NodeJS 10 unit tests"
       node_js: "10"
-
-    - <<: *unit
-      name: "NodeJS 8 unit tests"
-      node_js: "8"
 
     - &installer
       script: yarn installer:ci
@@ -39,7 +39,10 @@ jobs:
       addons:
         chrome: stable
 
-    - <<: *installer
-      name: "NodeJS 8 installer test"
-      node_js: "8"
+    - build_image:
+      script:
+        - docker build -t registry.storefrontcloud.io/mkoszut-storefrontcloud-io/vue-storefront:$COMMIT -f dev/docker/Dockerfile .
+        - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+        - docker push registry.storefrontcloud.io/mkoszut-storefrontcloud-io/vue-storefront:$COMMIT
+
 
