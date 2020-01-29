@@ -41,10 +41,19 @@ jobs:
 
     - build_image:
       name: "Build docker image"
+      stage: docker_build
       node_js: "10"
       script:
         - docker build -t registry.storefrontcloud.io/mkoszut-storefrontcloud-io/vue-storefront:$COMMIT -f dev/docker/Dockerfile .
         - echo $DOCKER_PASSWORD | docker login  -u="$DOCKER_USERNAME" --password-stdin registry.storefrontcloud.io
         - docker push registry.storefrontcloud.io/mkoszut-storefrontcloud-io/vue-storefront:$COMMIT
+
+    - deploy_to_storefrontcloud:
+      name: "Deploy to StorefrontCloud"
+      stage: deploy
+      node_js: "10"
+      script:
+        - >
+        curl -u $CLOUD_USERNAME:$CLOUD_PASSWORD -H "Content-Type: application/json" -X POST -d "{\"code\":\"mkoszut\", \"frontContainerVersion\":\"$COMMIT\"}" https://farmer.storefrontcloud.io/instances
 
 
