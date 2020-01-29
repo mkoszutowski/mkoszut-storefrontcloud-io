@@ -18,28 +18,30 @@ services:
 
 jobs:
   include:
-    - &build
-      stage: Build
-      script:
-        - yarn lint
-        - yarn build
-      node_js: "10"
+    # - &build
+    #   stage: Build
+    #   script:
+    #     - yarn lint
+    #     - yarn build
+    #   node_js: "10"
 
-    - &unit
-      stage: Test
-      script: yarn test:unit
-      name: "NodeJS 10 unit tests"
-      node_js: "10"
+    # - &unit
+    #   stage: Test
+    #   script: yarn test:unit
+    #   name: "NodeJS 10 unit tests"
+    #   node_js: "10"
 
-    - &installer
-      script: yarn installer:ci
-      name: "NodeJS 10 installer test"
-      if: branch IN (master, develop)
-      node_js: "10"
-      addons:
-        chrome: stable
+    # - &installer
+    #   script: yarn installer:ci
+    #   name: "NodeJS 10 installer test"
+    #   if: branch IN (master, develop)
+    #   node_js: "10"
+    #   addons:
+    #     chrome: stable
 
     - build_image:
+      name: "Build docker image"
+      node_js: "10"
       script:
         - docker build -t registry.storefrontcloud.io/mkoszut-storefrontcloud-io/vue-storefront:$COMMIT -f dev/docker/Dockerfile .
         - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
